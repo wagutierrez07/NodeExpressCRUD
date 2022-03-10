@@ -8,23 +8,30 @@
   <title>Document</title>
 </head>
 <body>
-  <table class="table table-light">
-    <thead class="thead-light">
-      <tr>
-        <th>#</th>
-        <th>Nombre</th>
-        <th>Imagen</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td scope="row"> - </td>
-        <td> - </td>
-        <td> - </td>
-        <td> Edicion / Eliminacion </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <br>
+    <br>
+    <a href="/libros/crear" class="btn btn-primary" type="button">Agregar</a>
+    <table class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for( let index = 0; index < libro.length; index++ ) { %>
+          <tr>
+            <td scope="row"><%=libro[index].id%></td>
+            <td><%=libro[index].titulo%></td>
+            <td><%=libro[index].imagen%></td>
+            <td> Edicion / Eliminacion </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
