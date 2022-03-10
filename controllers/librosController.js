@@ -8,6 +8,6 @@ module.exports = {
             console.log(results);
         });
 
-        res.render('libros/index', { title: 'Express' });
+        res.render('libros/index', { title: 'Libro' });
     }
 };
