@@ -11,7 +11,7 @@ module.exports = {
         create:function (req,res) {
             res.render('libros/crear',  { title: 'Registrar Libros' });
         },
-        update:function (req,res) {
-            res.render('libros/editar');
-    }
+        store:function (req,res) {
+            res.send(req.body);
+        }
 };
