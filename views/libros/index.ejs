@@ -16,7 +16,11 @@
           <tr>
             <td scope="row"><%=libro[index].id%></td>
             <td><%=libro[index].titulo%></td>
-            <td><%=libro[index].imagen%></td>
+            <td>
+              <img src="images/<%=libro[index].imagen%>" height="100" class="img-thumnnail">
+              
+            
+            </td>
             <td> Edicion / Eliminacion </td>
           </tr>
         <% } %>

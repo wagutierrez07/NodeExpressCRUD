@@ -1,4 +1,5 @@
 var mysql      = require('mysql');
+//Variable para conectar con la base de datos
 var conn = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -6,17 +7,7 @@ var conn = mysql.createConnection({
   database: 'libros'
 });
 
-conn.connect(
+conn.connect();
 
-    (err)=>{
-      if (!err) {
-        console.log("Conexion exitosa");
-      }else{
-        console.log("Conexion fallida");
-      }
-    }
-
-);
-
-
+//Exportand/instanciando el objeto para su realizacion (Ver en controllers)
 module.exports = conn;
