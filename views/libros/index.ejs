@@ -16,12 +16,26 @@
           <tr>
             <td scope="row"><%=libro[index].id%></td>
             <td><%=libro[index].titulo%></td>
+            <td><img src="images/<%=libro[index].imagen%>" height="100" class="img-thumnnail"></td>
+            
             <td>
-              <img src="images/<%=libro[index].imagen%>" height="100" class="img-thumnnail">
+              <div class="btn-group-vertical" role="group" aria-label="Vertical button Group">
+                <form action="/libros/editar/<%=libro[index].id%>" method="post">
+                  <button type="submit" class="btn btn-warning">Editar</button>
+                </form>
+  
+               </div>
+
+              | 
               
+             <div class="btn-group-vertical" role="group" aria-label="Vertical button Group">
+              <form action="/libros/eliminar/<%=libro[index].id%>" method="post">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </form>
+
+             </div>
             
             </td>
-            <td> Edicion / Eliminacion </td>
           </tr>
         <% } %>
       </tbody>

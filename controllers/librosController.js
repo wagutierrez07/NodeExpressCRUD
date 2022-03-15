@@ -2,6 +2,8 @@
 var conn=require("../config/connector")
 //Llamado al modelo
 var libro = require("../models/Libro");
+//File System
+var borrar = require("fs")
 
 module.exports = {
     index:function (req, res) {
@@ -19,5 +21,24 @@ module.exports = {
                  res.redirect('/libros');
             });
 
+        },
+        
+        delete:function (req,res) {
+            console.log("Recepcion de data");
+            console.log(req.params.id);
+            libro.returnDataById(conn, req.params.id, function (err,register) {
+                var nombreImagen = "public/images/"+(register[0].imagen);
+
+      
+
+                //Borrado de archivos, de imagen
+                if (borrar.existsSync(nombreImagen)) {
+                    borrar.unlinkSync(nombreImagen);
+                }
+                libro.borrar(conn, req.params.id, function (err) {
+                     res.redirect('/libros');
+                });
+                
+            })
         }
 };

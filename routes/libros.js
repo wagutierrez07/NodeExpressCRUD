@@ -1,3 +1,5 @@
+//Archivo de rutas especifico, usado para la vista libros
+
 var express = require('express');
 var router = express.Router();
 const librosController = require ("../controllers/librosController");
@@ -24,4 +26,5 @@ var cargar = multer({storage:rutaAlmacenamiento});
 router.get('/',librosController.index );
 router.get('/crear',librosController.create );
 router.post("/",cargar.single("archivo"), librosController.store);
+router.post('/eliminar/:id', librosController.delete);
 module.exports = router;
