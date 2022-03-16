@@ -22,7 +22,7 @@ module.exports = {
             });
 
         },
-        
+        //Funcion de eliminacion
         delete:function (req,res) {
             console.log("Recepcion de data");
             console.log(req.params.id);
@@ -39,6 +39,41 @@ module.exports = {
                      res.redirect('/libros');
                 });
                 
-            })
+            });
+        },
+        //Funcion de edicion
+        edit:function (req,res) {
+            libro.returnDataById(conn, req.params.id, function (err,register) {
+                console.log(register);
+            res.render('libros/editar',  { title: 'Editar Libro', libro:register[0]});
+        });
+        },
+        update:function name (req,res) {
+            console.log(req.body.nombre);
+            //actualiar imagenes
+            if (req.file) {
+            if (req.file.filename) {
+                libro.returnDataById(conn, req.body.id, function (err,register) {
+                    var nombreImagen = "public/images/"+(register[0].imagen);
+    
+                    //Borrado de archivos, de imagen
+                    if (borrar.existsSync(nombreImagen)) {
+                        borrar.unlinkSync(nombreImagen);
+                    }
+                    libro.actualizarArchivo(conn, req.body, req.file, function (err) {
+                       
+                    });
+                    
+                });
+            }
+        }
+                
+        if (req.body.nombre) {
+            libro.actualizar(conn, req.body, function (err) {
+            
+            });
+
+        }
+             res.redirect('/libros');
         }
 };

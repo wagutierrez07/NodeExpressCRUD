@@ -27,4 +27,6 @@ router.get('/',librosController.index );
 router.get('/crear',librosController.create );
 router.post("/",cargar.single("archivo"), librosController.store);
 router.post('/eliminar/:id', librosController.delete);
+router.post('/editar/:id', librosController.edit);
+router.post("/actualizar",cargar.single("archivo"), librosController.update);
 module.exports = router;

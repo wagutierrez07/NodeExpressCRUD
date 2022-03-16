@@ -14,5 +14,11 @@ module.exports={
     //funcion de borrado de datos
     borrar:function (connection,id,funcion) {
         connection.query("DELETE FROM libro where id = ?", [id], funcion);
-    }
+    },
+    actualizar:function (connection, datos, funcion) {
+        connection.query("UPDATE libro SET titulo = ?  WHERE id = ?",[datos.nombre, datos.id], funcion);
+    },
+    actualizarArchivo:function (connection, datos, archivos, funcion) {
+        connection.query("UPDATE libro SET imagen = ?  WHERE id = ?",[archivos.filename, datos.id], funcion);
+    },
 }
