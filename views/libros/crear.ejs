@@ -1,19 +1,27 @@
 <%- include ../layouts/header.ejs %> 
+
+<div class="card text-left">
+  <img class="card-img-top" src="holder.js/100px180/" alt="">
+  <div class="card-body">
+    <h4 class="card-title">Title</h4>
+    <p class="card-text">Body</p>
     <form action="/libros" method="post" enctype="multipart/form-data">
 
-    <div class="form-group">
-        <label for="">Nombre</label>
-        <input type="text" name="nombre" id="my-input" class="form-control" placeholder="titulo" >
-
-    </div>
-
-    <div class="form-group">
-        <label for="">Imagen</label>
-        <input type="file" class="form-control-file" name="archivo" id="my-input">
-   
-    </div>
-
-    <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Agregar</button>
-
-</form>
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" name="nombre" id="my-input" class="form-control" placeholder="titulo" >
+    
+        </div>
+    
+        <div class="form-group">
+            <label for="">Imagen</label>
+            <input type="file" class="form-control-file" name="archivo" id="my-input">
+       
+        </div>
+    
+        <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Agregar</button>
+    
+    </form>
+  </div>
+</div>
 <%- include ../layouts/footer.ejs %> 
